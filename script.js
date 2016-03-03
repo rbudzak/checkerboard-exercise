@@ -17,16 +17,10 @@ window.onload = function(){
         for(var x = 1; x <= v; x++){ 
             var cell = document.createElement("div"); 
             cell.className = "checker";
-            
-            if (i % 2 === 0){
-              cell.style.backgroundColor = bgClr(x);
-            }
-            else{
-              cell.style.backgroundColor = bgClr(x+1);  
-            }
+            cell.style.backgroundColor = rndBg();
             cell.style.float = "left";
             cell.style.paddingBottom = "11.1%"; 
-            cell.style.width = "200px";
+            cell.style.width = "11.1%";
             row.appendChild(cell); 
         } 
         e.appendChild(row); 
@@ -36,4 +30,14 @@ window.onload = function(){
     if (val % 2 === 0) return("red");
     return("black");
   }  
+
+  function rndBg(){
+    strR = (Math.floor((Math.random() * 255))).toString(16);
+    strG = (Math.floor((Math.random() * 255))).toString(16);
+    strB = (Math.floor((Math.random() * 255))).toString(16);
+    rndClr = "#" + strR + strG + strB;
+    console.log(rndClr);
+    return rndClr;
+  }
 };
+
